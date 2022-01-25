@@ -48,8 +48,6 @@ let renderQuestion = (questionDetail) => {
 
     });
     
-
-    console.log(questionDetail);
 }
 
 
@@ -75,7 +73,7 @@ let displayInitialData = (quizChosen) => {
 
     classes("submit")[0].addEventListener("click", () => {
         let answerGiven = queryselector("input[name='answer']:checked").value;
-        console.log(answerGiven, quizChosen.data[questionNumber].answer, quizChosen.data[questionNumber].options);
+
         checkAnswer(answerGiven, quizChosen.data[questionNumber].answer, quizChosen.data[questionNumber].options);
         questionNumber++;
         

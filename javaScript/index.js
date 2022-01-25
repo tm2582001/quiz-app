@@ -7,4 +7,4 @@ for(let i=0; i<quizSelected.length;i++){
     quizSelected[i].addEventListener("click",()=>{
         window.location =  `quiz.html?quiz=${quizSelected[i].value}`
     });
-}
+} 

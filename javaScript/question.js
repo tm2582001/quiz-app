@@ -182,4 +182,4 @@ let quizThree = {
     "timePerQuestion": "30",
     "totalTime": "120",
     "type": "quiz"
-}
+} 
