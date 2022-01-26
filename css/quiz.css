@@ -82,6 +82,7 @@ section nav{
 
 #radio-options div{
     border-radius: 16px;
+    margin-bottom: 5px;
 }
 
 #radio-options div input{
