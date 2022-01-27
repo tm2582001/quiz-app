@@ -6,9 +6,9 @@ window.addEventListener('load', () => {
     id("result").innerHTML =  `${questionAnswersGiven}/5`;
     if(questionAnswersGiven<=2){
         id("feedback").innerHTML = "UGH!! you need improvement";
-    }else if(questionAnswersGiven === 3){
+    }else if(questionAnswersGiven == 3){
         id("feedback").innerHTML = "You are almost there try again";
-    }else if(questionAnswersGiven >3){ 
+    }else{ 
         id("feedback").innerHTML = "Congratulations You made it";
 
     }
