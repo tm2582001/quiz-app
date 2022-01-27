@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
         id("feedback").innerHTML = "UGH!! you need improvement";
     }else if(questionAnswersGiven === 3){
         id("feedback").innerHTML = "You are almost there try again";
-    }else{
+    }else if(questionAnswersGiven >3){ 
         id("feedback").innerHTML = "Congratulations You made it";
 
     }

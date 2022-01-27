@@ -5,11 +5,12 @@ let queryselector = (query) => document.querySelector(query);
 let questionNumber = 0, quiztimer, questionTimer;
 let questionAnswersGiven = 0;
 
-
+// for converting b64 to utf8
 function b64_to_utf8(str) {
     return decodeURIComponent(escape(window.atob(str)));
 }
 
+// to check answer
 let checkAnswer = (answerGiven, rightAnswer, options) => {
 
     if (answerGiven === b64_to_utf8(rightAnswer)) {
@@ -22,7 +23,7 @@ let checkAnswer = (answerGiven, rightAnswer, options) => {
             id(answerGiven).style.color = "#fff";
 
         }
-        // debugger;
+        
         options.map(option => {
             if (option === b64_to_utf8(rightAnswer)) {
                 try{
@@ -39,11 +40,13 @@ let checkAnswer = (answerGiven, rightAnswer, options) => {
 }
 
 
+// redering data of question
 let renderQuestion = (questionDetail) => {
     id("question").innerHTML = questionDetail.question;
     let radioOption = id("radio-options");
     radioOption.innerHTML = "";
 
+    // rendering radio option
     questionDetail.options.map((option) => {
         let Div = document.createElement("div")
         Div.setAttribute("id", option);
@@ -65,7 +68,7 @@ let renderQuestion = (questionDetail) => {
 
 }
 
-
+// displaying initial data
 let displayInitialData = (quizChosen) => {
     id("quiz-title").innerHTML = quizChosen.title;
     let date = new Date(quizChosen.createdAt);
@@ -81,6 +84,8 @@ let displayInitialData = (quizChosen) => {
 
 
     let remainingtimeForQuiz = quizChosen.totalTime;
+
+    // timmer for quiz
     let checkTimeForQuiz = () => {
         if (remainingtimeForQuiz === 0) {
 
@@ -106,6 +111,7 @@ let displayInitialData = (quizChosen) => {
 
     let remainingTimeForQuestion = quizChosen.timePerQuestion;
 
+    // timmer for question
     let checkTimeforQuestion = () => {
         if (remainingTimeForQuestion === 0) {
             let answerGiven = queryselector("input[name='answer']:checked");
@@ -188,7 +194,9 @@ let displayInitialData = (quizChosen) => {
 
 
 window.addEventListener('load', () => {
+    // reading parameters
     const params = (new URL(document.location)).searchParams;
     const quizChosen = params.get('quiz');
+    // eval --> converting string to variable
     displayInitialData(eval(quizChosen));
 });
